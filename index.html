@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TETRIS</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- LEFT PANEL -->
+    <aside class="panel panel--left">
+      <div class="panel-section">
+        <div class="label">HOLD 1</div>
+        <canvas id="hold1" width="120" height="120"></canvas>
+      </div>
+      <div class="panel-section">
+        <div class="label">HOLD 2</div>
+        <canvas id="hold2" width="120" height="120"></canvas>
+      </div>
+      <div class="panel-section controls-hint">
+        <div class="label">CONTROLS</div>
+        <div class="hint-grid">
+          <span class="key">←→</span><span>Move</span>
+          <span class="key">↑</span><span>Rotate</span>
+          <span class="key">Alt</span><span>Rev. Rotate</span>
+          <span class="key">↓</span><span>Soft Drop</span>
+          <span class="key">SPC</span><span>Hard Drop</span>
+          <span class="key">Shift</span><span>Store</span>
+          <span class="key">Ctrl</span><span>Cycle Slot</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN BOARD -->
+    <main class="board-wrapper">
+      <header class="game-header">
+        <span class="game-title">TETRIS</span>
+        <div class="header-right">
+          <button id="muteBtn" class="icon-btn" title="Toggle Sound">♪</button>
+        </div>
+      </header>
+
+      <div class="board-container">
+        <canvas id="board" width="300" height="600"></canvas>
+        <div id="overlay" class="overlay hidden">
+          <div class="overlay-content">
+            <div id="overlay-title" class="overlay-title"></div>
+            <div id="overlay-sub" class="overlay-sub"></div>
+            <button id="overlay-btn" class="start-btn"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat">
+          <div class="label">SCORE</div>
+          <div id="score" class="stat-value">0</div>
+        </div>
+        <div class="stat">
+          <div class="label">LEVEL</div>
+          <div id="level" class="stat-value">1</div>
+        </div>
+        <div class="stat">
+          <div class="label">LINES</div>
+          <div id="lines" class="stat-value">0</div>
+        </div>
+      </div>
+    </main>
+
+    <!-- RIGHT PANEL -->
+    <aside class="panel panel--right">
+      <div class="panel-section">
+        <div class="label">NEXT</div>
+        <div id="next-queue" class="next-queue">
+          <canvas id="next1" width="120" height="100"></canvas>
+          <canvas id="next2" width="120" height="100"></canvas>
+          <canvas id="next3" width="120" height="100"></canvas>
+        </div>
+      </div>
+      <div class="panel-section">
+        <div class="label">ACTIVE SLOT</div>
+        <div id="slot-indicator" class="slot-indicator">
+          <div class="slot-dot active" data-slot="0"></div>
+          <div class="slot-dot" data-slot="1"></div>
+        </div>
+      </div>
+      <div class="panel-section">
+        <div class="label">HIGH SCORE</div>
+        <div id="high-score" class="stat-value">0</div>
+      </div>
+    </aside>
+
+  </div>
+
+  <script src="js/audio.js"></script>
+  <script src="js/pieces.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
